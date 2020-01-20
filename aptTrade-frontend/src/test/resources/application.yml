@@ -1,0 +1,6 @@
+cloud:
+  discovery:
+    enabled: false
+  service-registry:
+    auto-registration:
+      enabled: false

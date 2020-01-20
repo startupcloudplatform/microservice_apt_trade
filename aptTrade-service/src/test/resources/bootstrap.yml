@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    config:
+      enabled: false
+      fail-fast: false
+    service-registry:
+      auto-registration:
+        enabled: false
+
+feign:
+  httpclient:
+    enabled: false
+  client:
+    config:
+      default:
+        connect-timeout: 5000
+        read-timeout: 5000
+  post-api.url: http://address-front-addr.paastaxpert.co.kr
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 10000

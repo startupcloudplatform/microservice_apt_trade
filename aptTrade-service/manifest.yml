@@ -1,0 +1,9 @@
+---
+applications:
+  - name: trade-service
+    path: target/apt-trade-0.0.1-SNAPSHOT.jar
+    memory: 1G
+    buildpack: java_buildpack
+    env:
+      msa: yes
+      private:

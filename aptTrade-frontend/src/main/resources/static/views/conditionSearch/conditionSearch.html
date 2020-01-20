@@ -1,0 +1,62 @@
+
+<div class="wrapper">
+    <div class="content-wrap">
+        <div class="contents-bg">
+            <div class="cdt-wrap layout-col2">
+                <div class="cdt-box-wrap col-left">
+                    <!---------------------- 행정구역 검색 ---------------------->
+                    <div class="condition-sch-box w-80 ">
+                        <div class="adm-box">
+                            <h6 class="h5-blue">주소</h6>
+                            <ul class="layout-inline col3 w-100p mt-10">
+                                <li>
+                                    <select ng-model="ct.sltSido" class="w-100 text-center" ng-change="ct.listGugunBySido(ct.sltSido);">
+                                        <option value="">시/도</option>
+                                        <option ng-repeat="item in ct.sidoList">{{item}}</option>
+                                    </select>
+                                </li>
+                                <li>
+                                    <select ng-model="ct.sltGugun" class="w-100" ng-change="ct.listDongBySidoAndGugun(ct.sltSido, ct.sltGugun);" ng-disabled="ct.sltSido == ''" >
+                                        <option ng-if="ct.gugunList.length == 0" value="">시/군/구</option>
+                                        <option ng-repeat="item in ct.gugunList" value="{{item}}" ng-if="item != null">{{item}}</option>
+                                    </select>
+                                </li>
+                                <li>
+                                    <select ng-model="ct.sltDong" class="w-100" ng->disabled="ct.sltGugun == ''">
+                                        <option ng-if="ct.dongList.length == 0" value="0">읍/면/동</option>
+                                        <option ng-repeat="item in ct.dongList" value="{{item}}" ng-if="item != null">{{item}}</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="con-sel-box mt-10">
+                            <h6 class="h5-blue">조건</h6>
+                            <ul class="layout-inline col3 w-100p">
+                                <li><select class="w-100" ng-disabled="ct.sltGugun == ''" ng-model="ct.sltPrice"  ng-options="item.name for item in ct.priceRange"></select></li>
+                                <li><select class="w-100" ng-disabled="ct.sltGugun == ''" ng-model="ct.sltArea" ng-options="item.name for item in ct.areaRange"></select></li>
+                                <li>
+                                    <select class="quarter w-100" ng-model="ct.quarter" ng-disabled="ct.sltGugun == ''">
+                                        <option value="1">1 분기</option>
+                                        <option value="2">2 분기</option>
+                                        <option value="3">3 분기</option>
+                                        <option value="4">4 분기</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="cdt-search-box col-right"  ng-click="ct.conditionSearch();">
+                    <div>
+                        <span class="search-img btn"><i class="fa-search" title="검색"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!---------------- 검색 결과 ---------------->
+            <div ng-controller="conditionSearchResultController as rs">
+                <div ng-include="'/views/conditionSearch/conditionResult.html'"></div>
+            </div>
+        </div>
+    </div>
+</div>

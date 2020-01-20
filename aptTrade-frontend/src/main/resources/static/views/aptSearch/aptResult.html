@@ -1,0 +1,52 @@
+
+<div class="rst-wrapper">
+	<h3 class="rst-header">{{ rs.sltAddr.roadAddr }}</h3>
+	<div class="rst-line"></div>
+	<div>
+		<div class="rst-date result-col2">
+			<div class="rst-year col-left">
+				<h5 class="">기간: &nbsp;</h5>
+				<input type="text" class="w-50" readonly value="{{rs.thisYear | date:'yyyy'}}" />
+			</div>
+			<div class="col-right">
+				<h5 class="">분기: &nbsp;</h5>
+				<select class="quarter" style="width: 100px;" ng-model="rs.quarter" ng-change="rs.listAptTradeByApt();">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+				</select>
+			</div>
+		</div>
+		<div class="rst-contents">
+			<table class="table table-type mt-10">
+				<caption>실거래가 대비 공시지가 비율(단위:  ㎡,  만원)</caption>
+				<thead>
+					<tr>
+						<th>면적(m²)</th>
+						<th>공시가격(중간평균)</th>
+						<th>월</th>
+						<th>층</th>
+						<th>실거래가</th>
+						<th>비율</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in rs.list">
+						<td ng-show="rs.filter(item, $index);" rowspan="{{item.rowspan}}" >{{item.aptTrade.area | number:2 }}</td>
+						<td ng-show="!item.skip" rowspan="{{item.rowspan}}">{{item.avgDeclaredValue | number  }}</td>
+						<td>{{item.aptTrade.month}}</td>
+						<td>{{item.aptTrade.floor}}</td>
+						<td>{{item.aptTrade.transactionAmount}}</td>
+						<td>{{item.ratio}}</td>
+					</tr>
+				</tbody>
+				<tbody ng-if="rs.list.length == 0">
+				<tr>
+					<td colspan="6">목록이 존재하지 않습니다.</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

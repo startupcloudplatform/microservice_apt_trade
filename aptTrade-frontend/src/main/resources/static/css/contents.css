@@ -1,0 +1,183 @@
+@charset "utf-8";
+
+
+/******************** 아파트 주소 검색 ********************/
+.search-box {
+	display: inline-block;
+	overflow: hidden;
+	position: relative;
+}
+.search-box .btn.btn-ico{
+	position: absolute;
+	right: 3px;
+	top: 5px;
+	height: 32px;
+	border-top-right-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+}
+.search-box .addr-search {
+	border-bottom-left-radius: 1px;
+	border-bottom-right-radius: 1px;
+}
+.search-box .addr-result {
+	position: relative;
+	top: -1px;
+	border: 1px solid #ccc;
+	/*padding: 20px;*/
+	/*height: 265px;*/
+	overflow: auto;
+}
+.search-box .addr-result .guide-line {
+	max-height: 300px;
+}
+.search-box .addr-tip {
+	padding: 30px;
+}
+.search-box .addr-tip .example {
+	padding: 5px 0;
+}
+.search-box .addr-tip .ex {
+	color: #03a9f4;
+	font-size:13px;
+}
+.search-box .addr-list option{
+	width:100% !important;
+	background-color: white;
+}
+.search-box .result-warning {
+	display: inline-block;
+	color: #bb2e3c;
+	width: 100%;
+	padding: 10px 20px;
+	background: #fff8f8;
+}
+.search-box .table.table-blue thead th {
+	background-color: #0587b8;
+}
+.search-box .table tr:hover{
+	background-color: #a7c0d014;
+	cursor: pointer;
+}
+.search-box .table td, .table th{
+	vertical-align: middle;
+	border: none;
+	padding: 10px 20px;
+}
+.addr-content .addr-input {
+	background-color: #f7f7f7;
+	padding: 20px;
+}
+.selected > a:hover, .selected > a:focus {
+	color: #03a9f4 !important;
+}
+.btn-round-input {
+	position: absolute;
+	right: 33px !important;
+	padding: 0 6px;
+	top: 7px;
+	font-family: FontAwesome, sans-serif;
+	line-height: 29px;
+	font-size: 18px;
+}
+.btn-round-input span {
+	display: none;
+}
+/******************** 상세 검색 페이지 ********************/
+.cdt-box-wrap {
+	width:85%;
+	background: #ffffff;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	overflow: hidden;
+	margin: 0 auto;
+	box-shadow: 0 1px 15px 1px rgba(69, 65,78, .08);
+	-webkit-box-shadow: 0 1px 15px 1px rgba(69, 65,78, .08);
+	-moz-box-shadow: 0 1px 15px 1px rgba(69, 65,78, .08);
+}
+.cdt-search-box{
+	width:15%;
+	height: 165px;
+	background: #acbfcb;
+	position: relative;
+	cursor: pointer;
+}
+.cdt-search-box > div{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+}
+.cdt-search-box .search-img {
+	background: transparent;
+	color:white;
+	font-size:24px;
+	border: none;
+	width: 50px;
+	height: 50px;
+}
+.condition-sch-box{ padding: 20px; }
+ul.apt-results > li{
+	display: inline-block;
+	padding: 5px 15px;
+	border: 1px solid #dce2e6;
+	background: #d6ebf747;
+	width: 31%;
+	text-align: center;
+	cursor: pointer;
+	margin-right: 18px;
+	height: 35px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: pre;
+}
+ul.apt-results > li:nth-child(3n+0){
+	margin-right: 0;
+}
+
+/******************** 검색 결과 페이지 ********************/
+.rst-wrapper { position: relative; }
+.rst-wrapper .rst-date h5{ display: inline-block; }
+.rst-wrapper .rst-date{
+	position: relative;
+	top: 26px;
+	z-index: 999;
+	width: 60%;
+	float: right;
+	text-align: right;
+}
+.rst-wrapper .rst-contents {
+	/*position: relative;*/
+	/*width: 100%;*/
+	/*top: 20px;*/
+}
+.result-col2 .col-left {
+	display: inline-block;
+	width: 50%;
+	text-align: right;
+	margin-right: 10px;
+}
+.result-col2 .col-right {
+	display: inline-block;
+	width: 40%;
+	text-align: right;
+}
+
+/* table : type */
+.table-type caption {caption-side: top;}
+.table-type td { border: 1px solid #dee2e6; vertical-align: middle; text-align: center;}
+.table-type td:first-child { border-left: none; }
+.table-type td:last-child { border-right: none; }
+.table-type thead th {background-color: #d9e9f3;color: #474c52; text-align: center; } /* table : type (Color : blue) */
+.table-type thead th, .table-type thead th {border-top: 2px solid #8bb4ce;border-bottom: 1px solid #ddd;}
+
+.btn-wrap {
+	position: absolute;
+	bottom: 20px;
+	width: 100%;
+	text-align: center;
+}
+

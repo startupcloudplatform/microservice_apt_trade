@@ -1,0 +1,53 @@
+/*modal*/
+.modal-dialog {
+    margin-top: 80px;
+}
+.close{
+    font-size: 25px;
+}
+.category_detail .select_depth .list_depth .modal{
+    font-size: 15px;
+}
+
+.modal-content .modal-header {
+    border: none;
+}
+.modal-content h4.modal-title {
+    margin: 0;
+    padding: 0px 38px;
+    line-height: 1.2;
+    color: #333333;
+    letter-spacing: -1px;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-size: 20px;
+}
+
+.modal-content .modal-body{
+    border: 1px dashed #ddd;
+}
+.modal { background-color: inherit !important; }
+
+
+.modal-body .table-blue thead th, .table-blue thead th {
+    background-color: #4878c0;
+    color: #ffffff;
+    border: none;
+    font-weight: 400;
+    text-align: center;
+}
+.modal-body .table tbody tr {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+.modal-body .table tbody tr td {
+    border-right: 1px solid #ddd;
+}
+.modal-body .table tbody tr td:last-child {
+    border-right: none;
+}
+.modal-body .table-blue > tbody > tr:nth-of-type(odd) {
+    background-color: #fafafa;
+}

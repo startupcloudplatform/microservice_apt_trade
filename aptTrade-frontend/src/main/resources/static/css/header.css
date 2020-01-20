@@ -1,0 +1,81 @@
+body {
+    background-color: #f9f9f9 !important;
+}
+/*intro-sch*/
+.wrapper{
+    /*top: 45px;*/
+    /*position: relative;*/
+    background-color: transparent;
+}
+.fixed-top {
+    /*left: 57px !important;*/
+    position:absolute !important;
+    background-color: transparent !important;
+}
+
+.background, .background > div.background-img {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.background {
+    border: 1px solid #b3c3cc;
+    background: rgb(172, 191, 203);
+    filter: brightness(0.5);
+}
+.background > div.background-img{
+    width: 67% !important;
+    position: absolute !important;
+    top: 0;
+}
+.background > .background-img{
+    background-repeat: no-repeat,no-repeat;
+    background-position: center center,center center;
+    background-size: cover,cover;
+}
+.background .background-img {
+    background-image: url(../images/bg_04.jpg);
+    filter: brightness(.9);
+    opacity: 1;
+}
+.con-top .background-txt {
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    z-index: 9999;
+    text-align: center;
+    color: #c1c1c1;
+}
+
+.con-top .background-txt > div{
+    margin-top: 20px;
+}
+.con-top .background-txt > h1 {
+    color: #d2d2d2;
+}
+.background-txt .bg-header > div {
+    color: #d2d2d2 !important;
+}
+.con-top {
+    position: relative;
+    height: 400px;
+}
+
+.content .con-body{
+    position: relative;
+    width: 1280px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.navbar-light .navbar-brand {
+    color: #dadada;
+    font-weight: 700;
+    margin-left: 2.8%;
+}
+.navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
+    color: #dadada;
+}

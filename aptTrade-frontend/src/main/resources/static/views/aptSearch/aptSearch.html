@@ -1,0 +1,86 @@
+
+<div class="wrapper">
+    <div class="content-wrap">
+        <div class="contents-bg w-80">
+            <div class="box-wrap" style="position: relative;">
+                <!---------------------- 주소검색 ---------------------->
+                <h3 class="title">아파트 검색</h3>
+                <div class="box-addr">
+                    <div class="search-box w-100p">
+                        <input type="search" class="w-100p addr-search" ng-model="ct.keyword" ng-keypress="ct.enterPress($event, mc.pageOptions.currentPage)" placeholder="도로명주소, 건물명 또는 지번을 입력하세요" />
+                        <button type="button" class="btn btn-ico btn-round-input fa-close"  ng-click="ct.reset();"><span title="삭제">삭제</span></button>
+                        <button type="button" class="btn btn-ico" ng-click="ct.listAddressByKeyword(ct.pageOptions.currentPage);"><i class="fa-search" title="검색"></i></button>
+                        <div class="addr-result">
+                            <div class="addr-tip" ng-show="ct.init">
+                                <h4 class=""><strong>검색어 예)</strong></h4>
+                                <p>아래와 같은 조합으로 검색을 하시면 더욱 정확한 결과가 검색됩니다.</p>
+                                <ul class="example">
+                                    <li class="tit">도로명 + 건물번호</li>
+                                    <li class="ex">반포대로 58</li>
+                                </ul>
+                                <ul class="example">
+                                    <li class="tit">도로명 + 건물번호 + 아파트명</li>
+                                    <li class="ex">반포대로 58 서초아트자이</li>
+                                </ul>
+                            </div>
+                            <div class="addr-content"  ng-show="!ct.init">
+                                <div class="guide-line">
+                                    <div ng-hide="ct.close">
+                                        <script type="text/ng-template" id="alert.html">
+                                            <div ng-transclude></div>
+                                        </script>
+                                        <div uib-alert ng-class="'alert-danger'" close="closeAlert()">{{ct.alert.msg}}</div>
+                                    </div>
+                                    <span class="result-warning" ng-if="ct.list.common.totalCount > 15">도로명 주소 검색 결과가 너무 많습니다. 좀 더 상세하게 입력해주세요.</span>
+                                    <table class="table table-blue">
+                                        <tbody>
+                                        <tr ng-if="!ct.list.juso || ct.list.juso.length == 0 ">
+                                            <td colspan="6" class="text-center">
+                                                목록이 존재하지 않습니다.
+                                            </td>
+                                        </tr>
+                                        <tr ng-repeat="juso in ct.list.juso">
+                                            <td class="text-left" ng-click="ct.selected(juso);">{{juso.roadAddr}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="paginationWrap" ng-show="ct.pageOptions.total > ct.pageOptions.pageSize">
+                                        <paging
+                                                page="ct.pageOptions.currentPage"
+                                                page-size="ct.pageOptions.pageSize"
+                                                total="ct.pageOptions.total"
+                                                pg-href=""
+                                                show-prev-next="true"
+                                                show-first-last="true"
+                                                paging-action="ct.listAddressByKeyword(page)"
+                                                text-first-class="firstPage"
+                                                text-last-class="lastPage"
+                                                text-next-class="nextPage"
+                                                text-prev-class="prevPage">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-wrap" ng-show="!ct.init">
+                        <button type="button" class="btn btn-100 btn-blue" ng-disabled="!ct.sltAddr" ng-click="ct.compare();">공시지가 실거래가 비교</button>
+                    </div>
+                </div>
+            </div>
+            <!-- // 아파트명 검색 -->
+            <!---------------- 검색 결과 ---------------->
+            <div class="box-wrap mt-20">
+                <div ng-show="ct.isCompare" ng-include="'/views/aptSearch/aptResult.html'" ng-controller="aptSearchResultController as rs"></div>
+                <div ng-show="!ct.isCompare">
+                    <h3 class="title">공시지가 실거래가 비교 결과</h3>
+                    <div class="value-box mt-20">
+                        <div class="blank-value">
+                            <span class="value-img"></span>
+                            <p>주소를 선택하세요.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

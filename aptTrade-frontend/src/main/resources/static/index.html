@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"  ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Address Service</title>
+
+	<!-- jquery -->
+	<script src="webjars/jquery/2.2.4/jquery.min.js"></script>
+	<script src="webjars/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<!-- Angular JS -->
+	<script src="webjars/angularjs/1.2.16/angular.min.js"></script>
+	<script src="webjars/angular-ui/0.4.0/angular-ui.min.js"></script>
+	<script src="webjars/angularjs/1.2.16/angular-route.js"></script>
+	<script src="webjars/angularjs/1.2.16/angular-resource.js"></script>
+	<script src="webjars/angularjs/1.2.16/angular-animate.min.js"></script>
+	<script src="webjars/angularjs/1.2.16/angular-sanitize.min.js"></script>
+
+	<!-- Custom JS -->
+	<script src="js/components/ui-bootstrap-tpls.js"></script>
+	<script src="js/components/paging.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/errors.js"></script>
+	<script src="js/controllers/mainControllers.js"></script>
+	<script src="js/controllers/conditionSearchControllers.js"></script>
+	<script src="js/controllers/aptSearchControllers.js"></script>
+	<script src="js/services/commonServices.js"></script>
+	<script src="js/services/addressServices.js"></script>
+	<script src="js/services/aptTradeServices.js"></script>
+
+	<!-- css -->
+	<link href="webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="webjars/bootstrap/4.0.0/css/bootstrap-grid.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/components/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="css/components/notosanskr.css">
+
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/loading.css">
+	<link rel="stylesheet" type="text/css" href="css/modal.css">
+	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/contents.css">
+
+</head>
+<body ng-controller="mainController as mc">
+	<section>
+		<div class="loader-container" ng-show="loadingMain" ng-include="'/views/mainLoading.html'" ></div>
+
+		<!--------------- Header --------------->
+		<nav class="navbar navbar-expand-md navbar-light fixed-top bg-white">
+			<a class="navbar-brand" href="#">Microservice Apartment</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+				</ul>
+			</div>
+		</nav>
+
+		<!--------------- Contents --------------->
+		<main role="main" >
+			<!-- Main background -->
+			<div class="content">
+				<div class="con-top">
+					<div class="background">
+						<div class="background-img"></div>
+					</div>
+					<div class="background-txt">
+						<h1 class="bg-header">공동주택 실거래가 대비 공시지가 비율 조회 서비스</h1>
+						<div>
+							<p>마이크로서비스를 통해 당해연도 공중주택 실거래가 대비 공시지가 비율을 조회하실 수 있습니다.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div ng-view></div>
+		</main>
+
+		<!--------------- Footer --------------->
+		<footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+			<div class="container text-center">
+				<small>&copy; Company 2019</small>
+			</div>
+		</footer>
+	</section>
+</body>
+</html>
