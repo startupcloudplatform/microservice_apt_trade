@@ -6,4 +6,4 @@ applications:
     buildpack: java_buildpack
     env:
       msa: yes
-      private:
+      private: 

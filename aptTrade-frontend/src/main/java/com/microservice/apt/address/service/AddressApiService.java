@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient(url = "${feign.post-api.url}", name="address-front", configuration = FeignConfiguration.class)
+@FeignClient(url = "${feign.post-api.url}", name="address-front", configuration = AddressFeignConfiguration.class)
 public interface AddressApiService {
 
     @GetMapping("/v1/address/list")

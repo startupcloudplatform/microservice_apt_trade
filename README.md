@@ -34,22 +34,49 @@
 
 1. [OpenDataMarket 홈페이지](#http://182.252.131.40:3000) 내 OpenData 메뉴에서 **아파트매매 실거래 상세 자료** API를 활용 신청합니다.
 
-  <img src="./images/opendata01.png" width="500">
+  <img src="./images/opendata01.png" width="600">
    
 2. 마이페이지에서 **나의 인증키**를 복사합니다.
-  <img src="./images/opendata02.png" width="500">
+  <img src="./images/opendata02.png" width="600">
 
-3. aptTrade-service/src/main/resources/application.properties 수정
+3. MsXpert에서 [주소 서비스](https://github.com/startupcloudplatform/microservice_address)와 [공시지가 서비스](https://github.com/startupcloudplatform/public-land-value)가 배포 돼있어야 합니다. 
+
+4. aptTrade-service/src/main/resources/application.properties 수정
   
    ````
    #공공데이터 포털 주소 API
    opendata.api.apt.trade.uri: http://182.252.131.40:9000/apiservice/4357
    opendata.api.key: ##여기에 키 입력
    ````
-      
-4. CF 또는 [PaaS-TA](#http://paas-ta.kr) 설치
-5.  **[CF  CLI](#https://github.com/cloudfoundry/cli/releases)** 설치 
-       
+
+5. aptTrade-service/src/main/resources/bootstrap.properties 수정
+
+    생성할 마이크로서비스에 연결할 주소 서비스의 backend  서비스 명을 입력합니다. 
+   
+   ````
+   ##주소 Microservice API URL
+   feign.post-api.name: ${FEIGN_POST_API_NAME:address-service}
+   ````
+6. aptTrade-frontend/src/main/resources/bootstrap.properties 수정
+
+   MsXpert 에서 마이크로서비스 생성 시 오른쪽 탭에 API에서 등록한 주소 및 공시지가 공개 API를 추가합니다. 이때, 아래 이미지와 같이 입력한 basic auth정보 및 API URL 정보를 aptTrade-frontend의 bootstrap.properties 파일에도 입력합니다.
+   URL은 해당 Msxpert의 주소 IP(http://203.245.1.101) 또는 도메인에 생성한 API의 prefix를 붙여줍니다.
+   
+   <img src="./images/basic_auth.png" width="400">
+   
+   ````
+   ##주소 Microservice API URL
+   feign.post-api.url=${FEIGN_POST_API_URI:http://203.245.1.101/address}
+   feign.post-api.username:
+   feign.post-api.password:
+
+   ## 공시지가 Microservice API  URL
+   feign.olv-api.url: ${FEIGN_OLV_API_URI:http://203.245.1.101/plv}
+   feign.olv-api.username:
+   feign.olv-api.password:
+   hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
+   ````
+     
 
 
 ## Application Deploy
@@ -87,6 +114,6 @@
 
 Paas-TA 계정을 가지고 MsXpert Studio에 접속하여  아래 이미지와 같이 user1-paasta 조직에 배포한 frontend, backend 앱을 마우스로 드래그하여 마이크로서비스를 설계할 수 있습니다.
 
-  <img src="./images/img02.png" width="500">
+  <img src="./images/img02.png" width="700">
 
     
